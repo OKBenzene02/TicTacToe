@@ -1,3 +1,3 @@
 # TicTacToe
 This website is deployed using netlify 
-website link --> 
+website link --> https://tictactoemip.netlify.app
