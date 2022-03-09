@@ -124,6 +124,20 @@ h1{
     background-color: white;
 }
 
+/* Footer content */
+footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 35vh;
+    position: sticky;
+    background-color: black;
+    color: white;
+    height: 4em;
+    font-size: 1.5rem;
+}
+
 /* Winning message */
 .message{
     display: none;
@@ -160,16 +174,3 @@ h1{
     display: flex;
 }
 
-/* Footer content */
-footer{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 35vh;
-    position: sticky;
-    background-color: black;
-    color: white;
-    height: 4em;
-    font-size: 1.5rem;
-}
