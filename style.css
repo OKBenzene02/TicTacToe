@@ -1,0 +1,175 @@
+*{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+body{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+:root{
+    --cell-size: 7rem;
+    --xo-size: calc(var(--cell-size) * .9);
+}
+
+h1{
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(40%);
+}
+
+.list_items{
+    display: grid;
+    list-style: none;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(3, auto);
+    border-radius: 0.5rem;
+
+}
+.items{
+    margin: auto;
+    /* background-color: rgb(219, 219, 219); */
+    width: var(--cell-size);
+    height: var(--cell-size);
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+.items.x, .items.o{
+    cursor: not-allowed;
+}
+.cell1, .cell2, .cell3{
+    border-top: none;
+}
+.cell7, .cell8, .cell9{
+    border-bottom: none;
+}
+.cell1{
+    border-left: none;
+}
+
+.cell3{
+    border-right: none;
+}
+
+.cell4{
+    border-left: none;
+}
+
+.cell6{
+    border-right: none;
+}
+
+.cell7{
+    border-left: none;
+}
+
+.cell9{
+    border-right: none;
+}
+
+
+/* For Lighter x, o colors */
+.items.x::before, .items.x::after, .items.o::before{
+    background-color: black;
+}
+
+.container.x .items:not(.x):not(.o):hover::before, .container.x .items:not(.x):not(.o):hover::after,
+.container.o .items:not(.x):not(.o):hover::before, .container.o .items:not(.x):not(.o):hover::after{
+    background-color: lightgrey;
+}
+
+
+/* For x mark */
+.items.x::before, .items.x::after, .container.x .items:not(.x):not(.o):hover::before, .container.x .items:not(.x):not(.o):hover::after{
+    content: '';
+    width: calc(var(--xo-size) * .15);
+    height: var(--xo-size);
+    position: absolute;
+}
+
+.items.x::before, .container.x .items:not(.x):not(.o):hover::before{
+    transform: rotate(45deg);
+}
+
+.items.x::after, .container.x .items:not(.x):not(.o):hover::after{
+    transform: rotate(-45deg);
+}
+
+
+/* For o mark */
+.items.o::before, .items.o::after, .container.o .items:not(.x):not(.o):hover::before, .container.o .items:not(.x):not(.o):hover::after{
+    content: '';
+    border-radius: 50%;
+    position: absolute;
+}
+
+.items.o::before, .container.o .items:not(.x):not(.o):hover::before{
+    width:var(--xo-size);
+    height: var(--xo-size);
+}
+
+.items.o::after, .container.o .items:not(.x):not(.o):hover::after{
+    width: calc(var(--xo-size) * .68);
+    height: calc(var(--xo-size) * .68);
+    background-color: white;
+}
+
+/* Winning message */
+.message{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .9);
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 5rem;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.message .restart{
+    width: 4em;
+    height: 2em;
+    border: 2px solid white;
+    color: white;
+    font-size: 2rem;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 5px;
+}
+
+.message .restart:hover{
+    background-color: white;
+    color: black;
+}
+
+.message.show{
+    display: flex;
+}
+
+/* Footer content */
+footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 35vh;
+    position: sticky;
+    background-color: black;
+    color: white;
+    height: 4em;
+    font-size: 1.5rem;
+}
