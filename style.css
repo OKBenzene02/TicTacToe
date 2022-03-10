@@ -172,5 +172,6 @@ footer{
 
 .message.show{
     display: flex;
+    z-index: 1;
 }
 

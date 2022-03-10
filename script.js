@@ -66,6 +66,7 @@ function StartGame() {
 
 Restart_Game.addEventListener("click", (e) => {
   e.preventDefault();
+  board.classList[1] = xClass
   listItems.forEach((cell) => {
     cell.classList.remove(oClass);
     cell.classList.remove(xClass);
